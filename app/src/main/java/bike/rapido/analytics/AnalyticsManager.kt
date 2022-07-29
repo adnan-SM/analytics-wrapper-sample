@@ -21,12 +21,16 @@ object AnalyticsManager {
             sendEventToCleverTap()
             sendEventToFirebase()
             sendEventToAppsFlyer()
-        } else if (trackers.contains(AnalyticTrackers.CLEVERTAP)) {
-            sendEventToCleverTap()
-        } else if (trackers.contains(AnalyticTrackers.FIREBASE)) {
-            sendEventToFirebase()
         } else {
-            sendEventToAppsFlyer()
+            if (trackers.contains(AnalyticTrackers.CLEVERTAP)) {
+                sendEventToCleverTap()
+            }
+            if (trackers.contains(AnalyticTrackers.FIREBASE)) {
+                sendEventToFirebase()
+            }
+            if (trackers.contains(AnalyticTrackers.APPSFLYER)) {
+                sendEventToAppsFlyer()
+            }
         }
     }
 
